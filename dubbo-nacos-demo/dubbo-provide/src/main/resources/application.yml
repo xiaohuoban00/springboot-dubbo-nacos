@@ -1,0 +1,17 @@
+
+nacos:
+  config:
+    server-addr: localhost:8848
+spring:
+  application:
+    name: dubbo-provide
+dubbo:
+  application:
+    name: ${spring.application.name}
+  registry:
+    address: nacos://${nacos.config.server-addr}
+  scan:
+    base-packages: com.zmq.service
+  protocol:
+    name: dubbo
+    port: 20881
